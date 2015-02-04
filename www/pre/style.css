@@ -18,15 +18,6 @@ a.navbar-brand {
 a.visible-xs {
   min-height: 85px;
 }
-@media (max-width: 768px) {
-  div.container {
-    height: 85px;
-  }
-  div.navbar-header {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-}
 .navbar-default .navbar-toggle .icon-bar {
   background-color: #47e8a3;
   border-color: #47e8a3;
@@ -66,12 +57,29 @@ nav.visible-xs ul li:last-child a {
   margin: 0 auto;
 }
 #lan-main {
-  height: 100%;
-  background: url("../images/AR-140619938.jpg") no-repeat #282828;
+  height: 800px;
+  background: url("../images/venue1.jpg") no-repeat #282828;
   background-size: 100%;
-  padding-top: 150px;
+  padding-top: 250px;
   padding-bottom: 100px;
 }
 main#lan-main div {
-  background-color: rgba(64, 64, 64, 0.5);
+  background-color: rgba(64, 64, 64, 0.8);
+  padding-bottom: 50px;
+}
+main#lan-main div h4 {
+  font-weight: lighter;
+}
+/*Media Queries*/
+@media (max-width: 768px) {
+  div.container {
+    height: 85px;
+  }
+  div.navbar-header {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  #lan-main {
+    padding-top: 150px;
+  }
 }

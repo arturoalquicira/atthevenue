@@ -1,5 +1,5 @@
 //Define angular.module with dependencies: firebase, ngRoute, ui.bootstrap
-var atthevenue = angular.module('atthevenue',['firebase','ngRoute', 'ui.bootstrap']);
+var atthevenue = angular.module('atthevenue',['firebase','ngRoute', 'ui.bootstrap', 'ngFitText']);
 
 atthevenue.config(["$routeProvider", function($routeProvider){
     $routeProvider
