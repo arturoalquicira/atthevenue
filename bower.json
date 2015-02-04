@@ -1,0 +1,17 @@
+{
+  "name": "atthevenue-production",
+  "version": "1.0.0",
+  "authors": [
+    "arturoalquicira <arturoalquicira@fullsail.edu>"
+  ],
+  "description": "CRUD Applicaation for Show Production Environment",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

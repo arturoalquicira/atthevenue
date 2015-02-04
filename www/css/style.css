@@ -1,0 +1,77 @@
+/*Navbar*/
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+  cursor: pointer;
+}
+.navbar-default {
+  background-color: transparent;
+  border-color: transparent;
+}
+a.navbar-brand {
+  height: 85px;
+}
+.navbar-toggle {
+  margin-top: 30px;
+}
+a.visible-xs {
+  min-height: 85px;
+}
+@media (max-width: 768px) {
+  div.container {
+    height: 85px;
+  }
+  div.navbar-header {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #47e8a3;
+  border-color: #47e8a3;
+}
+nav.visible-xs.collapse.in,
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #282828;
+}
+nav.visible-xs.collapse.in {
+  width: 100%;
+}
+ul.nav.navbar-nav {
+  margin: 0;
+}
+nav.hidden-xs ul:nth-child(2) {
+  margin-top: 30px;
+}
+/*Navbar Links*/
+#signup-btn {
+  color: #47e8a3;
+  border: solid 1px #47e8a3;
+  border-radius: 2px;
+}
+#signup-btn:hover {
+  color: #fffef5;
+  background-color: #47e8a3;
+}
+.place-holder {
+  height: 85px;
+}
+nav.visible-xs ul li:last-child a {
+  color: #47e8a3;
+  border: solid 1px #47e8a3;
+  border-radius: 2px;
+  width: 90%;
+  margin: 0 auto;
+}
+#lan-main {
+  height: 100%;
+  background: url("../images/AR-140619938.jpg") no-repeat #282828;
+  background-size: 100%;
+  padding-top: 150px;
+  padding-bottom: 100px;
+}
+main#lan-main div {
+  background-color: rgba(64, 64, 64, 0.5);
+}

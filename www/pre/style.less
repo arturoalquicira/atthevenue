@@ -1,0 +1,104 @@
+//variables
+@back-color: #282828;
+@big-header: #404040;
+@small-header: #47E8A3;
+@text-color: #FFFEF5;
+@link-color: #EF5847;
+
+
+//mixins
+
+/*Navbar*/
+.nav, .pagination, .carousel, .panel-title a {
+  cursor: pointer;
+}
+
+.navbar-default{
+  background-color: transparent;
+  border-color: transparent;
+}
+
+a.navbar-brand{
+  height: 85px;
+}
+
+.navbar-toggle{
+  margin-top: 30px;
+}
+
+a.visible-xs{
+  min-height: 85px;
+
+}
+
+@media (max-width: 768px) {
+  div.container{
+      height: 85px;
+    }
+  div.navbar-header{
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+}
+
+.navbar-default .navbar-toggle .icon-bar{
+  background-color: @small-header;
+  border-color: @small-header;
+}
+
+nav.visible-xs.collapse.in,
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus{
+  background-color: @back-color;
+}
+
+nav.visible-xs.collapse.in{
+  width: 100%;
+}
+
+ul.nav.navbar-nav{
+  margin: 0;
+}
+
+nav.hidden-xs ul:nth-child(2){
+  margin-top: 30px;
+}
+
+/*Navbar Links*/
+#signup-btn{
+  color: @small-header;
+  border: solid 1px @small-header;
+  border-radius: 2px;
+}
+
+#signup-btn:hover{
+  color: @text-color;
+  background-color: @small-header;
+}
+
+.place-holder{
+  height: 85px;
+}
+
+nav.visible-xs ul li:last-child a{
+  color: @small-header;
+  border: solid 1px @small-header;
+  border-radius: 2px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+
+#lan-main{
+  height: 100%;
+  background: url("../images/AR-140619938.jpg") no-repeat @back-color;
+  background-size: 100%;
+  padding-top: 150px;
+  padding-bottom: 100px;
+}
+
+
+main#lan-main div{
+  background-color: fadeout(@big-header,50%);
+}
