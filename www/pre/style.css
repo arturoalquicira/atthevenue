@@ -10,7 +10,8 @@
   border-color: transparent;
 }
 a.navbar-brand {
-  height: 85px;
+  margin-top: 5px;
+  height: 90px;
 }
 .navbar-toggle {
   margin-top: 30px;
@@ -81,5 +82,9 @@ main#lan-main div h4 {
   }
   #lan-main {
     padding-top: 150px;
+  }
+  header#navbar-scroll {
+    background-color: transparent;
+    border-color: transparent;
   }
 }
