@@ -8,6 +8,22 @@
 
 //mixins
 
+p{
+  font-weight: 100;
+}
+
+/*Links*/
+
+.cleanLink:hover{
+  text-decoration: none;
+}
+
+
+/*Forms*/
+::-webkit-input-placeholder {
+  font-weight: 100;
+}
+
 /*Navbar*/
 .nav, .pagination, .carousel, .panel-title a {
   cursor: pointer;
@@ -41,6 +57,7 @@ nav.visible-xs.collapse.in,
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus{
   background-color: @back-color;
+  padding-bottom: 10px;
 }
 
 nav.visible-xs.collapse.in{
@@ -59,7 +76,7 @@ nav.hidden-xs ul:nth-child(2){
 #signup-btn{
   color: @small-header;
   border: solid 1px @small-header;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 #signup-btn:hover{
@@ -79,10 +96,11 @@ nav.visible-xs ul li:last-child a{
   margin: 0 auto;
 }
 
-
-#lan-main{
+/*Landing Page*/
+main#lan-main{
   height: 800px;
-  background: url("../images/venue1.jpg") no-repeat @back-color;
+  background: url("../images/venue2.jpg") no-repeat @back-color;
+  background-attachment: fixed;
   background-size: 100%;
   padding-top: 250px;
   padding-bottom: 100px;
@@ -90,16 +108,33 @@ nav.visible-xs ul li:last-child a{
 
 
 main#lan-main div{
-  background-color: fadeout(@big-header,20%);
-  padding-bottom: 50px;
+//  background-color: fadeout(@big-header,20%);
+//  padding: 20px;
 }
 
-main#lan-main div h4{
-  font-weight: lighter;
+main#lan-main div h1{
+  margin-top: 0;
+  margin-bottom: 10px;
 }
+
+main#lan-main div h5:first-of-type{
+  margin-top: 50px;
+}
+
+main#lan-main div h5{
+  font-weight: 100;
+}
+
+main#lan-main div a{
+  margin-top: 20px;
+}
+
+
 
 /*Media Queries*/
 @media (max-width: 768px) {
+
+//  Navbar
   div.container{
     height: 85px;
   }
@@ -107,14 +142,41 @@ main#lan-main div h4{
     padding-right: 15px;
     padding-left: 15px;
   }
-  #lan-main{
-    padding-top: 150px;
-  }
 
   header#navbar-scroll{
     background-color: transparent;
     border-color: transparent;
   }
 
+//  Langing page - main
+  main#lan-main{
+    padding-top: 120px;
+  }
+
+  main#lan-main div h1{
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  main#lan-main div h5:first-of-type{
+    margin-top: 50px;
+    margin-bottom: 0;
+  }
+
+  main#lan-main div h5{
+    font-weight: 100;
+    margin-top: 0;
+  }
+
+  main#lan-main div a{
+    margin-top: 20px;
+  }
+
+
+}
+
+/*Footer*/
+footer{
+  padding: 60px 0 15px;
 }
 

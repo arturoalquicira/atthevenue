@@ -1,3 +1,11 @@
+/*Links*/
+.cleanLink:hover {
+  text-decoration: none;
+}
+/*Forms*/
+::-webkit-input-placeholder {
+  font-weight: 100;
+}
 /*Navbar*/
 .nav,
 .pagination,
@@ -27,6 +35,7 @@ nav.visible-xs.collapse.in,
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
   background-color: #282828;
+  padding-bottom: 10px;
 }
 nav.visible-xs.collapse.in {
   width: 100%;
@@ -41,7 +50,7 @@ nav.hidden-xs ul:nth-child(2) {
 #signup-btn {
   color: #47e8a3;
   border: solid 1px #47e8a3;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 #signup-btn:hover {
   color: #fffef5;
@@ -57,6 +66,7 @@ nav.visible-xs ul li:last-child a {
   width: 90%;
   margin: 0 auto;
 }
+/*Landing Page*/
 #lan-main {
   height: 800px;
   background: url("../images/venue1.jpg") no-repeat #282828;
@@ -87,4 +97,8 @@ main#lan-main div h4 {
     background-color: transparent;
     border-color: transparent;
   }
+}
+/*Footer*/
+footer {
+  padding: 60px 0 15px;
 }
