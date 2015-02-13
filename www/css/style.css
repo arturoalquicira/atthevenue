@@ -9,6 +9,9 @@ p {
 ::-webkit-input-placeholder {
   font-weight: 100;
 }
+label {
+  font-weight: 200;
+}
 /*Navbar*/
 .nav,
 .pagination,
@@ -46,7 +49,7 @@ nav.visible-xs.collapse.in {
 ul.nav.navbar-nav {
   margin: 0;
 }
-nav.hidden-xs ul:nth-child(2) {
+ul#nav-links-land {
   margin-top: 30px;
 }
 /*Navbar Links*/
@@ -91,6 +94,17 @@ main#lan-main div h5 {
 main#lan-main div a {
   margin-top: 20px;
 }
+/*** App ****/
+#nav-dropdown-app {
+  margin-top: 30px;
+}
+main#main-app {
+  margin-top: 200px;
+}
+/*Footer*/
+footer {
+  padding: 60px 0 15px;
+}
 /*Media Queries*/
 @media (max-width: 768px) {
   div.container {
@@ -122,8 +136,4 @@ main#lan-main div a {
   main#lan-main div a {
     margin-top: 20px;
   }
-}
-/*Footer*/
-footer {
-  padding: 60px 0 15px;
 }

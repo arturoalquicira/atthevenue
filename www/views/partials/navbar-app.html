@@ -1,5 +1,5 @@
-<!--NavBar (anim)-->
-<header id="navbar-scroll" class="navbar navbar-default navbar-fixed-top">
+<!--NavBar - app (anim)-->
+<header class="navbar navbar-default navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
             <div class="navbar-header">
@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand visible-xs" href="#">
+                <a class="navbar-brand visible-xs" href="#/">
                     <svg width="150" height="55">
                         <text transform="matrix(1 0 0 1 4.417 16.1283)" fill="#FFFDF5" stroke="#FFFEF5" stroke-width="0.2" stroke-miterlimit="10" font-family="'HelveticaNeue-Bold'" font-size="15.1804">AT THE</text>
                         <text transform="matrix(1 0 0 1 4.5684 50.2782)" fill="#FFFDF5" stroke="#FFFEF5" stroke-width="0.2" stroke-miterlimit="10" font-family="'HelveticaNeue-Bold'" font-size="42.3353">VENUE</text>
@@ -63,7 +63,7 @@
             </div>
             <nav class="hidden-xs ">
                 <ul class="nav navbar-nav">
-                    <a href="#top" role="button" class="navbar-brand">
+                    <a href="#/" role="button" class="navbar-brand">
                         <svg width="150" height="55">
                             <!--<rect x="0" y="-0.667" fill="" stroke="" stroke-miterlimit="10" width="150" height="55.167"/>-->
                             <text transform="matrix(1 0 0 1 4.417 16.1283)" fill="#FFFDF5" stroke="#FFFEF5" stroke-width="0.2" stroke-miterlimit="10" font-family="'HelveticaNeue-Bold'" font-size="15.1804">AT THE</text>
@@ -117,13 +117,15 @@
                     </a>
 
                 </ul>
-                <ul id="nav-links-land" class="nav navbar-nav pull-right">
-
-
-                    <li><a href="">Prices</a></li>
-                    <li><a href="">Contact</a></li>
-                    <li><a href="#/login">Log In</a></li>
-                    <li ><a id="signup-btn" href="#/signup">Sign Up</a></li>
+                <ul class="nav navbar-nav pull-right">
+                    <li id="nav-dropdown-app" class="dropdown" dropdown="">
+                        <a role="button" class="dropdown-toggle" dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
+                            Directives <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#accordion">Accordion</a></li><li><a href="#alert">Alert</a></li><li><a href="#buttons">Buttons</a></li><li><a href="#carousel">Carousel</a></li><li><a href="#collapse">Collapse</a></li><li><a href="#datepicker">Datepicker</a></li><li><a href="#dropdown">Dropdown</a></li><li><a href="#modal">Modal</a></li><li><a href="#pagination">Pagination</a></li><li><a href="#popover">Popover</a></li><li><a href="#progressbar">Progressbar</a></li><li><a href="#rating">Rating</a></li><li><a href="#tabs">Tabs</a></li><li><a href="#timepicker">Timepicker</a></li><li><a href="#tooltip">Tooltip</a></li><li><a href="#typeahead">Typeahead</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <nav class="visible-xs" collapse="!isCollapsed">
@@ -138,4 +140,5 @@
     </div>
 </header>
 <!--end NavBar-->
+
 
