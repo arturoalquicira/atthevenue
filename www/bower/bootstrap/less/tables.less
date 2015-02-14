@@ -23,6 +23,7 @@ th {
   width: 100%;
   max-width: 100%;
   margin-bottom: @line-height-computed;
+  margin-top: @line-height-computed;
   // Cells
   > thead,
   > tbody,
@@ -33,7 +34,9 @@ th {
         padding: @table-cell-padding;
         line-height: @line-height-base;
         vertical-align: top;
-        border-top: 1px solid @table-border-color;
+//        border-top: 2px solid @table-border-color;
+        font-weight: 300;
+
       }
     }
   }
@@ -75,6 +78,7 @@ th {
       > th,
       > td {
         padding: @table-condensed-cell-padding;
+        font-weight: 200;
       }
     }
   }

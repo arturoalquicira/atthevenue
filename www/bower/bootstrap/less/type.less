@@ -57,12 +57,13 @@ h6, .h6 { font-size: @font-size-h6; }
 
 p {
   margin: 0 0 (@line-height-computed / 2);
+  font-weight: 300;
+
 }
 
 .lead {
   margin-bottom: @line-height-computed;
   font-size: floor((@font-size-base * 1.15));
-  font-weight: 300;
   line-height: 1.4;
 
   @media (min-width: @screen-sm-min) {
@@ -145,9 +146,11 @@ mark,
 // -------------------------
 
 .page-header {
-  padding-bottom: ((@line-height-computed / 2) - 1);
-  margin: (@line-height-computed * 2) 0 @line-height-computed;
-  border-bottom: 1px solid @page-header-border-color;
+//  padding-bottom: ((@line-height-computed / 2) - 1);
+  padding-bottom: 0;
+//  margin: (@line-height-computed * 2) 0 @line-height-computed;
+  margin: 0 0 20px;
+  border-bottom: 4px solid @page-header-border-color;
 }
 
 

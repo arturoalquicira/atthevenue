@@ -1,7 +1,7 @@
 //
 // Variables
 // --------------------------------------------------
-
+@fore-color: #404040;
 @gray-base: #FFFEF5;
 @gray-darker: lighten(@gray-base, 13.5%);
 @gray-dark: lighten(@gray-base, 20%);
@@ -18,11 +18,11 @@
 @link-color: @brand-primary;
 @link-hover-color: @brand-primary;
 @link-hover-decoration: none;
-@font-family-sans-serif: "Source Sans Pro", Helvetica, Arial, sans-serif;
+@font-family-sans-serif: "Helvetica Neu", Helvetica, Arial, sans-serif;
 @font-family-serif: Georgia "Times New Roman", Times, serif;
 @font-family-monospace: Menlo "Monaco Consolas" "Courier New", monospace;
 @font-family-base: @font-family-sans-serif;
-@font-size-base: 18px;
+@font-size-base: 16px;
 @font-size-large: ceil((@font-size-base * 1.25));
 @font-size-small: ceil((@font-size-base * 0.85));
 @font-size-h1: floor((@font-size-base * 2.6));
@@ -34,7 +34,7 @@
 @line-height-base: 1.428571429;
 @line-height-computed: floor((@font-size-base * @line-height-base));
 @headings-font-family: inherit;
-@headings-font-weight: 600;
+@headings-font-weight: 500;
 @headings-line-height: 1.1;
 @headings-color: inherit;
 @icon-font-path: "../fonts/";
@@ -50,21 +50,21 @@
 @padding-xs-horizontal: 5px;
 @line-height-large: 1.3333333;
 @line-height-small: 1.5;
-@border-radius-base: 4px;
-@border-radius-large: 6px;
-@border-radius-small: 3px;
+@border-radius-base: 2px;
+@border-radius-large: 2px;
+@border-radius-small: 2px;
 @component-active-color: #FFFEF5;
 @component-active-bg: #404040;
 @caret-width-base: 4px;
 @caret-width-large: 5px;
 @table-cell-padding: 8px;
 @table-condensed-cell-padding: 5px;
-@table-bg: #404040;
+@table-bg: transparent;
 @table-bg-accent: #282828;
 @table-bg-hover: #404040;
 @table-bg-active: @table-bg-hover;
-@table-border-color: @brand-primary;
-@btn-font-weight: normal;
+@table-border-color: @fore-color;
+@btn-font-weight: 300;
 @btn-default-color: #FFFEF5;
 @btn-default-bg: #404040;
 @btn-default-border: #47E8A3;
@@ -101,13 +101,13 @@
 @input-group-addon-bg: #282828;
 @input-group-addon-border-color: #47E8A3;
 @cursor-disabled: not-allowed;
-@dropdown-bg: #47E8A3;
-@dropdown-border: rgba(0,0,0,.15);
+@dropdown-bg: @fore-color;
+@dropdown-border: @fore-color;
 @dropdown-fallback-border: #ccc;
-@dropdown-divider-bg: #e5e5e5;
+@dropdown-divider-bg: @gray-base;
 @dropdown-link-color: @gray-base;
 @dropdown-link-hover-color: @gray-base;
-@dropdown-link-hover-bg: #f5f5f5;
+@dropdown-link-hover-bg: lighten(@fore-color,20%);
 @dropdown-link-active-color: @component-active-color;
 @dropdown-link-active-bg: @component-active-bg;
 @dropdown-link-disabled-color: @gray-light;
@@ -373,7 +373,7 @@
 @blockquote-small-color: @gray-light;
 @blockquote-font-size: (@font-size-base * 1.25);
 @blockquote-border-color: @gray-lighter;
-@page-header-border-color: @gray-lighter;
+@page-header-border-color: @fore-color;
 @dl-horizontal-offset: @component-offset-horizontal;
 @hr-border: @gray-lighter;
 
@@ -383,3 +383,4 @@
 @zindex-tooltip:           1070;
 @zindex-navbar-fixed:      1030;
 @zindex-modal:             1040;
+

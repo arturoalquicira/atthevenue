@@ -1,15 +1,16 @@
 //variables
 @back-color: #282828;
-@big-header: #404040;
-@small-header: #47E8A3;
+@fore-color: #404040;
+@brand-primary: #47E8A3;
 @text-color: #FFFEF5;
 @link-color: #EF5847;
 
 
 //mixins
 
-p{
-  font-weight: 100;
+body, p, a, li{
+  font-weight: 300;
+  text-overflow: ellipsis;
 }
 
 /*Links*/
@@ -41,6 +42,7 @@ label{
 a.navbar-brand{
   margin-top: 5px;
   height: 90px;
+  padding: 12.5px 5px;
 }
 
 .navbar-toggle{
@@ -53,8 +55,8 @@ a.visible-xs{
 }
 
 .navbar-default .navbar-toggle .icon-bar{
-  background-color: @small-header;
-  border-color: @small-header;
+  background-color: @brand-primary;
+  border-color: @brand-primary;
 }
 
 nav.visible-xs.collapse.in,
@@ -78,14 +80,14 @@ ul#nav-links-land{
 
 /*Navbar Links*/
 #signup-btn{
-  color: @small-header;
-  border: solid 1px @small-header;
+  color: @brand-primary;
+  border: solid 1px @brand-primary;
   border-radius: 4px;
 }
 
 #signup-btn:hover{
   color: @text-color;
-  background-color: @small-header;
+  background-color: @brand-primary;
 }
 
 .place-holder{
@@ -93,8 +95,8 @@ ul#nav-links-land{
 }
 
 nav.visible-xs ul li:last-child a{
-  color: @small-header;
-  border: solid 1px @small-header;
+  color: @brand-primary;
+  border: solid 1px @brand-primary;
   border-radius: 2px;
   width: 90%;
   margin: 0 auto;
@@ -111,27 +113,6 @@ main#lan-main{
 }
 
 
-main#lan-main div{
-//  background-color: fadeout(@big-header,20%);
-//  padding: 20px;
-}
-
-main#lan-main div h1{
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-
-main#lan-main div h5:first-of-type{
-  margin-top: 50px;
-}
-
-main#lan-main div h5{
-  font-weight: 100;
-}
-
-main#lan-main div a{
-  margin-top: 20px;
-}
 
 /*** App ****/
 
@@ -141,11 +122,56 @@ main#lan-main div a{
   margin-top: 30px;
 }
 
-//main-section app
-
-main#main-app{
-  margin-top: 200px;
+header.navbar{
+  background-color: @fore-color;
 }
+
+////////main-section app
+//// Profile
+
+main.main-app{
+  margin-top: 110px;
+}
+
+main.main-app h1,
+main.main-app h2,
+main.main-app h3,
+main.main-app h4,
+main.main-app h5,
+main.main-app h6, {
+  color: @fore-color;
+  font-weight: 600;
+}
+
+//headers -modules
+small.icon-page-header {
+  font-size: 30px;
+}
+
+.border-color{
+  border: 4px solid @fore-color;
+  border-radius: 2px;
+}
+
+//for icons only
+span.my-icon{
+  margin-top: 25px;
+}
+
+//for links only
+div.my-link{
+  padding: 35px 20px 0 0;
+}
+
+////contacts-list
+div.contacts-list{
+  max-height: 150px;
+  overflow: scroll;
+}
+
+
+
+
 
 
 /*Footer*/
@@ -176,25 +202,10 @@ footer{
     padding-top: 120px;
   }
 
-  main#lan-main div h1{
-    margin-top: 0;
-    margin-bottom: 10px;
-  }
+}
 
-  main#lan-main div h5:first-of-type{
-    margin-top: 50px;
-    margin-bottom: 0;
-  }
-
-  main#lan-main div h5{
-    font-weight: 100;
-    margin-top: 0;
-  }
-
-  main#lan-main div a{
-    margin-top: 20px;
-  }
-
+@media (min-width: 768px){
+  //navbar
 
 }
 
