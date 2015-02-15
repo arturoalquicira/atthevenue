@@ -23,7 +23,7 @@ label {
 .panel-title a {
   cursor: pointer;
 }
-.navbar-default {
+header#navbar-scroll {
   background-color: transparent;
   border-color: transparent;
 }
@@ -122,6 +122,25 @@ div.contacts-list {
   max-height: 150px;
   overflow: scroll;
 }
+header.tabs {
+  margin-bottom: 30px;
+}
+header.tabs div.tabs-list {
+  padding-top: 20px;
+}
+a.tabs-links,
+a.tabs-links h4 {
+  color: #fffef5;
+  font-weight: lighter;
+}
+a.tabs-links h4.tabs-links-active {
+  border-bottom: 5px solid #47e8a3;
+  padding-bottom: 5px;
+  color: #47e8a3;
+}
+a.delete-icon:hover {
+  color: #ef5847;
+}
 /*Footer*/
 footer {
   padding: 60px 0 15px;
@@ -141,5 +160,10 @@ footer {
   }
   main#lan-main {
     padding-top: 120px;
+  }
+}
+@media (max-width: 320px) {
+  .res-padding {
+    padding-left: 0;
   }
 }

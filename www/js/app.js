@@ -19,6 +19,10 @@ atthevenue.config(["$routeProvider", function($routeProvider){
             templateUrl: '/views/profile.html',
             controller: 'profileCtrl'
         })
+        .when('/project', {
+            templateUrl: '/views/project.html',
+            controller: 'projectCtrl'
+        })
 }]);
 
 atthevenue.controller('landingCtrl',[
@@ -53,4 +57,11 @@ atthevenue.controller('profileCtrl', [
     }
 ]);
 
+atthevenue.controller('projectCtrl', [
+    "$scope",
+    "$firebase",
+    function($scope, $firebase){
+
+    }
+]);
 

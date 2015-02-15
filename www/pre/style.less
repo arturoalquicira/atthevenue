@@ -34,7 +34,7 @@ label{
   cursor: pointer;
 }
 
-.navbar-default{
+header#navbar-scroll{
   background-color: transparent;
   border-color: transparent;
 }
@@ -170,7 +170,30 @@ div.contacts-list{
 }
 
 
+/////** Project View **/////////
+header.tabs{
+  margin-bottom: 30px;
 
+}
+header.tabs div.tabs-list{
+  padding-top: 20px;
+}
+
+a.tabs-links, a.tabs-links h4{
+  color: @text-color;
+  font-weight: lighter;
+
+}
+
+a.tabs-links h4.tabs-links-active{
+  border-bottom: 5px solid @brand-primary;
+  padding-bottom: 5px;
+  color: @brand-primary;
+}
+
+a.delete-icon:hover{
+  color: @link-color;
+}
 
 
 
@@ -204,8 +227,11 @@ footer{
 
 }
 
-@media (min-width: 768px){
-  //navbar
+@media (max-width: 320px){
+  //tabs
+  .res-padding{
+    padding-left: 0;
+  }
 
 }
 
