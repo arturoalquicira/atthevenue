@@ -51,36 +51,50 @@ qsheets.controller('signupCtrl', [
     function($scope, $rootScope, $location, $firebase) {
 
         var ref = new Firebase('https://qsheets.firebaseio.com/users');
+        var authClient = new FirebaseSimpleLogin(ref, function(error, user) {
+
+        });
+
 
         $scope.signUp = function(){
             var email = $scope.email;
             var password = $scope.password;
 
-            var authClient = new FirebaseSimpleLogin(ref, function(error, user) {
-
-            });
             authClient.createUser(email, password, function(error, user) {
-
-                if (error === null) {
-                    console.log("User created successfully:", user);
-                    //ref.set(user);
+                if (error) {
+                    switch (error.code) {
+                        case "EMAIL_TAKEN":
+                            console.log("The new user account cannot be created because the email is already in use.");
+                            break;
+                        case "INVALID_EMAIL":
+                            console.log("The specified email is not a valid email.");
+                            break;
+                        default:
+                            console.log("Error creating user:", error);
+                    }
+                } else {
                     var list = $firebase(ref).$asArray();
-                    list.$add(user).then(function(ref) {
-                        var id = ref.user.id;
+                    list.$add({
+                        id: user.uid,
+                        email: user.email
+                    }).then(function(ref) {
+                        var id = ref.key();
                         console.log("added record with id " + id);
-                        list.$indexFor.key(); // returns location in the array
+                        list.$indexFor(id); // returns location in the array
                         $location.path('profile');
                     });
-                    console.log('hasta aqui');
-
-
-                } else {
-                    console.log("Error creating user:", error);
+                    console.log("Successfully created user account with uid:", user.uid);
                 }
             });
 
 
+
+
+
+
         };
+
+
 
 
     }
