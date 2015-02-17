@@ -1,7 +1,7 @@
 //variables
 @back-color: #282828;
 @fore-color: #404040;
-@brand-primary: #47E8A3;
+@brand-primary: #8fd9d1;
 @text-color: #FFFEF5;
 @link-color: #EF5847;
 
@@ -41,16 +41,16 @@ header#navbar-scroll{
 
 a.navbar-brand{
   margin-top: 5px;
-  height: 90px;
+  height: 65px;
   padding: 12.5px 5px;
 }
 
 .navbar-toggle{
-  margin-top: 30px;
+  margin-top: 23px;
 }
 
 a.visible-xs{
-  min-height: 85px;
+  min-height: 60px;
 
 }
 
@@ -62,8 +62,9 @@ a.visible-xs{
 nav.visible-xs.collapse.in,
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus{
-  background-color: @back-color;
+  background-color: @fore-color;
   padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 nav.visible-xs.collapse.in{
@@ -118,11 +119,11 @@ main#lan-main{
 
 //Navbar
 
-#nav-dropdown-app{
-  margin-top: 30px;
+.nav-app-margin{
+  margin-top: 15px;
 }
 
-header.navbar{
+header#navbar-app{
   background-color: @fore-color;
 }
 
@@ -139,8 +140,8 @@ main.main-app h3,
 main.main-app h4,
 main.main-app h5,
 main.main-app h6, {
-  color: @fore-color;
-  font-weight: 600;
+//  color: @fore-color;
+  font-weight: 500;
 }
 
 //headers -modules
@@ -151,16 +152,23 @@ small.icon-page-header {
 .border-color{
   border: 4px solid @fore-color;
   border-radius: 2px;
+  margin-bottom: 5px;
+
 }
 
 //for icons only
 span.my-icon{
-  margin-top: 25px;
+  margin-top: 17px;
 }
 
 //for links only
 div.my-link{
-  padding: 35px 20px 0 0;
+  padding: 25px 20px 0 0;
+}
+
+.color-icons{
+  color: #4b8ab2;
+
 }
 
 ////contacts-list
@@ -171,11 +179,11 @@ div.contacts-list{
 
 
 /////** Project View **/////////
-header.tabs{
+section.tabs{
   margin-bottom: 30px;
-
 }
-header.tabs div.tabs-list{
+
+section.tabs div.tabs-list{
   padding-top: 20px;
 }
 
@@ -207,8 +215,10 @@ footer{
 @media (max-width: 768px) {
 
 //  Navbar
-  div.container{
+  div.navbar-inner div.container{
     height: 85px;
+    padding-right: 0;
+    padding-left: 0;
   }
   div.navbar-header{
     padding-right: 15px;
@@ -233,6 +243,213 @@ footer{
     padding-left: 0;
   }
 
+}
+
+//////////table custom
+
+
+.responsive-table-custom .no-border{
+  border: none;
+}
+
+.container-table-custom {
+  margin: 5% 3%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+@media (min-width: 48em) {
+  .container-table-custom {
+    margin: 2%;
+  }
+}
+@media (min-width: 75em) {
+  .container-table-custom {
+    margin: 2em auto;
+    max-width: 75em;
+  }
+}
+
+.responsive-table-custom {
+  width: 100%;
+  margin-bottom: 1.5em;
+}
+@media (min-width: 48em) {
+  .responsive-table-custom {
+    font-size: 14px;
+  }
+}
+@media (min-width: 62em) {
+  .responsive-table-custom {
+    font-size: 14px;
+  }
+}
+.responsive-table-custom thead {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+@media (min-width: 48em) {
+  .responsive-table-custom thead {
+    position: relative;
+    clip: auto;
+    height: auto;
+    width: auto;
+    overflow: auto;
+  }
+}
+.responsive-table-custom thead th {
+  background-color: transparent;
+  border: 1px solid @brand-primary;
+  font-weight: normal;
+  text-align: center;
+  color: @text-color;
+}
+.responsive-table-custom thead th:first-of-type {
+  text-align: left;
+}
+.responsive-table-custom tbody,
+.responsive-table-custom th,
+.responsive-table-custom td {
+  display: block;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+}
+
+.responsive-table-custom tr{
+  display: block;
+  padding: 10px 0;
+  text-align: left;
+  white-space: normal;
+}
+
+@media (min-width: 48em) {
+  .responsive-table-custom tr {
+    display: table-row;
+    height: 72px;
+  }
+}
+.responsive-table-custom th,
+.responsive-table-custom td {
+  padding: .5em;
+  vertical-align: middle;
+}
+@media (min-width: 30em) {
+  .responsive-table-custom th,
+  .responsive-table-custom td {
+    padding: .75em .5em;
+  }
+}
+@media (min-width: 48em) {
+  .responsive-table-custom th,
+  .responsive-table-custom td {
+    display: table-cell;
+    padding: .5em;
+  }
+}
+@media (min-width: 62em) {
+  .responsive-table-custom th,
+  .responsive-table-custom td {
+    padding: .75em .5em;
+  }
+}
+@media (min-width: 75em) {
+  .responsive-table-custom th,
+  .responsive-table-custom td {
+    padding: .75em;
+  }
+}
+.responsive-table-custom caption {
+  margin-bottom: 1em;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+}
+@media (min-width: 48em) {
+  .responsive-table-custom caption {
+    font-size: 1.5em;
+  }
+}
+.responsive-table-custom tfoot {
+  font-size: .8em;
+  font-style: italic;
+}
+@media (min-width: 62em) {
+  .responsive-table-custom tfoot {
+    font-size: .9em;
+  }
+}
+@media (min-width: 48em) {
+  .responsive-table-custom tbody {
+    display: table-row-group;
+  }
+}
+.responsive-table-custom tbody tr {
+  margin-bottom: 1em;
+  border: 2px solid @brand-primary;
+}
+@media (min-width: 48em) {
+  .responsive-table-custom tbody tr {
+    display: table-row;
+    border-width: 1px;
+  }
+}
+.responsive-table-custom tbody tr:last-of-type {
+  margin-bottom: 0;
+}
+@media (min-width: 48em) {
+  .responsive-table-custom tbody tr:nth-of-type(even) {
+    background-color: rgba(94, 93, 82, 0.1);
+  }
+}
+.responsive-table-custom tbody th[scope="row"] {
+  background-color: transparent;
+  color: @text-color;
+}
+@media (min-width: 48em) {
+  .responsive-table-custom tbody th[scope="row"] {
+    background-color: transparent;
+    color: @text-color;
+    text-align: left;
+  }
+}
+.responsive-table-custom tbody td {
+  text-align: right;
+}
+@media (min-width: 30em) {
+  .responsive-table-custom tbody td {
+    border-bottom: none;
+  }
+}
+@media (min-width: 48em) {
+  .responsive-table-custom tbody td {
+    text-align: left;
+  }
+}
+.responsive-table-custom tbody td[data-type=currency] {
+  text-align: right;
+}
+.responsive-table-custom tbody td[data-title]:before {
+  content: attr(data-title);
+  float: left;
+  font-size: 14px;
+  color: @text-color;
+}
+@media (min-width: 30em) {
+  .responsive-table-custom tbody td[data-title]:before {
+    font-size: 14px;
+  }
+}
+@media (min-width: 48em) {
+  .responsive-table-custom tbody td[data-title]:before {
+    content: none;
+  }
 }
 
 

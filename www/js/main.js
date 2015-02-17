@@ -60,7 +60,7 @@ $(function() {
 });
 
 //Dropdown
-atthevenue.controller('DropdownCtrl', function ($scope, $log) {
+qsheets.controller('DropdownCtrl', function ($scope, $log) {
     $scope.items = [
         'The first choice!',
         'And another choice for you.',
@@ -96,3 +96,4 @@ angular.module('ui.bootstrap.demo').controller('TabsDemoCtrl', function ($scope,
         });
     };
 });
+

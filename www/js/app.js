@@ -1,7 +1,7 @@
 //Define angular.module with dependencies: firebase, ngRoute, ui.bootstrap
-var atthevenue = angular.module('atthevenue',['firebase','ngRoute', 'ui.bootstrap', 'ngFitText']);
+var qsheets = angular.module('qsheets',['firebase','ngRoute', 'ui.bootstrap', 'ngFitText']);
 
-atthevenue.config(["$routeProvider", function($routeProvider){
+qsheets.config(["$routeProvider", function($routeProvider){
     $routeProvider
         .when('/',{
             templateUrl: '/views/landing.html',
@@ -25,7 +25,7 @@ atthevenue.config(["$routeProvider", function($routeProvider){
         })
 }]);
 
-atthevenue.controller('landingCtrl',[
+qsheets.controller('landingCtrl',[
     "$scope",
     "$firebase",
     function($scope, $firebase){
@@ -33,7 +33,7 @@ atthevenue.controller('landingCtrl',[
     }
 ]);
 
-atthevenue.controller('loginCtrl',[
+qsheets.controller('loginCtrl',[
     "$scope",
     "$firebase",
     function($scope, $firebase){
@@ -41,7 +41,55 @@ atthevenue.controller('loginCtrl',[
     }
 ]);
 
-atthevenue.controller('signupCtrl', [
+
+
+qsheets.controller('signupCtrl', [
+    "$scope",
+    "$rootScope",
+    "$location",
+    "$firebase",
+    function($scope, $rootScope, $location, $firebase) {
+
+        var ref = new Firebase('https://qsheets.firebaseio.com/users');
+
+        $scope.signUp = function(){
+            var email = $scope.email;
+            var password = $scope.password;
+
+            var authClient = new FirebaseSimpleLogin(ref, function(error, user) {
+
+            });
+            authClient.createUser(email, password, function(error, user) {
+
+                if (error === null) {
+                    console.log("User created successfully:", user);
+                    //ref.set(user);
+                    var list = $firebase(ref).$asArray();
+                    list.$add(user).then(function(ref) {
+                        var id = ref.user.id;
+                        console.log("added record with id " + id);
+                        list.$indexFor.key(); // returns location in the array
+                        $location.path('profile');
+                    });
+                    console.log('hasta aqui');
+
+
+                } else {
+                    console.log("Error creating user:", error);
+                }
+            });
+
+
+        };
+
+
+    }
+
+]);
+
+
+
+qsheets.controller('profileCtrl', [
     "$scope",
     "$firebase",
     function($scope, $firebase){
@@ -49,15 +97,7 @@ atthevenue.controller('signupCtrl', [
     }
 ]);
 
-atthevenue.controller('profileCtrl', [
-    "$scope",
-    "$firebase",
-    function($scope, $firebase){
-
-    }
-]);
-
-atthevenue.controller('projectCtrl', [
+qsheets.controller('projectCtrl', [
     "$scope",
     "$firebase",
     function($scope, $firebase){

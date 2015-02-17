@@ -1,6 +1,6 @@
 <ng-include src='"views/partials/navbar-app.html"'></ng-include>
 
-<div class="container">
+<div class="container container-custom">
 <main class="row main-app">
     <!--First Column-->
     <div  class="col-md-4 ">
@@ -9,10 +9,10 @@
             <div class="col-md-12">
                 <div class="border-color row">
                     <div class="col-md-8 col-sm-8 col-xs-8">
-                        <h1>PROFILE</h1>
+                        <h3>PROFILE</h3>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-4 text-right">
-                        <small><a class="" href="#/login"> <span class="my-icon fa fa-pencil-square-o fa-2x"></span></a> </small>
+                        <a class="color-icons" href="#/login"> <span class="my-icon fa fa-pencil-square-o fa-2x"></span></a>
                     </div>
                 </div>
                 <div class="border-color row">
@@ -57,10 +57,10 @@
             <div class="col-md-12">
                 <div class="border-color row">
                     <div class="col-md-8 col-sm-8 col-xs-8">
-                        <h1>CONTACTS</h1>
+                        <h3>CONTACTS</h3>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-4 text-right ">
-                        <small><a href="#/login"><span class="fa fa-user-plus fa-2x my-icon"></span> </a> </small>
+                        <a href="#/login" class="color-icons"><span class="fa fa-user-plus fa-2x my-icon"></span> </a>
                     </div>
                 </div>
 
@@ -124,50 +124,47 @@
     <!--End First Column-->
 
     <!--Second Column-->
-    <div class="col-md-7 col-md-offset-1">
+    <div class="col-md-8 ">
         <div class="row">
             <div class="col-md-12">
                 <div class="border-color row">
                     <div class="col-md-7 col-sm-7 col-xs-7">
-                        <h1>PROJECTS</h1>
+                        <h3>PROJECTS</h3>
                     </div>
                     <div class="col-md-5 col-sm-5 col-xs-5 text-right my-link">
-                        <small style="font-size: 100%;"><a href="#/login"><span class="glyphicon glyphicon-plus"></span> New Project</a> </small>
+                        <a href="#/login" class="color-icons"><span class="fa fa-plus"></span> New Project</a>
                     </div>
 
                 </div>
                 <div class="border-color row">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th><strong>Project Title</strong></th>
-                            <th><strong>Date</strong></th>
-                            <th><strong>City</strong></th>
-                            <th class="hidden-xs"><strong>Type</strong></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th><a href="#/project">Kings Of Leonkjhjgjhghg</a></th>
-                            <td>27/03/15</td>
-                            <td>Orlando, Fl</td>
-                            <td class="hidden-xs">Concert</td>
-                        </tr>
-                        <tr>
-                            <th>Kings Of Leon</th>
-                            <td>27/03/15</td>
-                            <td>Orlando, Fl</td>
-                            <td class="hidden-xs">Concert</td>
-                        </tr>
-                        <tr>
-                            <th>Kings Of Leon</th>
-                            <td>27/03/15</td>
-                            <td>Orlando, Fl</td>
-                            <td class="hidden-xs">Concert</td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    <div class="container-table-custom">
+                        <table class="responsive-table-custom">
+                            <thead>
+
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td data-title="Project Name:" class="text-left">Kings Of Leon</td>
+                                <td data-title="Dates:">11/01/15 - 11/02/15</td>
+                                <td data-title="City:">Orlando</td>
+                                <td data-title=""><a href="#/project" class="btn btn-block btn-primary">View Project</a> </td>
+                                <td data-title="" class="visible-md visible-lg"><a href="" class="delete-icon"><span class="fa fa-trash-o fa-lg"></span></a></td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+
+                <!--TESTING MODAL-->
+
+
+<!--finish testing-->
             </div>
         </div>
 
