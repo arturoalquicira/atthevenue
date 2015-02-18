@@ -28,7 +28,21 @@ qsheets.config(["$routeProvider", function($routeProvider){
 qsheets.controller('landingCtrl',[
     "$scope",
     "$firebase",
-    function($scope, $firebase){
+    "$firebaseAuth",
+    function($scope, $firebaseAuth){
+
+        // Creates connection with db
+        var ref = new Firebase("https://qsheets.firebaseio.com");
+        $scope.authObj = $firebaseAuth(ref);
+
+
+        // Check authentication state
+        var authData = ref.getAuth();
+        if (authData) {
+            console.log("User " + authData.uid + " is logged in with " + authData.provider);
+        } else {
+            console.log("User is logged out");
+        }
 
     }
 ]);
@@ -37,6 +51,8 @@ qsheets.controller('loginCtrl',[
     "$scope",
     "$firebase",
     function($scope, $firebase){
+
+
 
     }
 ]);
@@ -47,52 +63,46 @@ qsheets.controller('signupCtrl', [
     "$scope",
     "$rootScope",
     "$location",
-    "$firebase",
-    function($scope, $rootScope, $location, $firebase) {
+    "$firebaseAuth",
+    function($scope, $rootScope, $location, $firebaseAuth) {
 
-        var ref = new Firebase('https://qsheets.firebaseio.com/users');
-        var authClient = new FirebaseSimpleLogin(ref, function(error, user) {
+        // Creates connection with db
+        var ref = new Firebase("https://qsheets.firebaseio.com");
+        $scope.authObj = $firebaseAuth(ref);
 
-        });
 
+        // Check authentication state
+        var authData = ref.getAuth();
+        if (authData) {
+            console.log("User " + authData.uid + " is logged in with " + authData.provider);
+            $location.path('profile');
+        } else {
+            console.log("User is logged out");
+        }
 
-        $scope.signUp = function(){
+        //// Creates new user and save the user as an object
+        $scope.signUp = function() {
+            /** Local form variables **/
             var email = $scope.email;
             var password = $scope.password;
 
-            authClient.createUser(email, password, function(error, user) {
-                if (error) {
-                    switch (error.code) {
-                        case "EMAIL_TAKEN":
-                            console.log("The new user account cannot be created because the email is already in use.");
-                            break;
-                        case "INVALID_EMAIL":
-                            console.log("The specified email is not a valid email.");
-                            break;
-                        default:
-                            console.log("Error creating user:", error);
-                    }
-                } else {
-                    var list = $firebase(ref).$asArray();
-                    list.$add({
-                        id: user.uid,
-                        email: user.email
-                    }).then(function(ref) {
-                        var id = ref.key();
-                        console.log("added record with id " + id);
-                        list.$indexFor(id); // returns location in the array
-                        $location.path('profile');
-                    });
-                    console.log("Successfully created user account with uid:", user.uid);
-                }
+            $scope.authObj.$createUser({
+                email: email,
+                password: password
+            }).then(function (userData) {
+                console.log("User " + userData.uid + " created successfully!");
+
+                return $scope.authObj.$authWithPassword({
+                    email: email,
+                    password: password
+                });
+            }).then(function (authData) {
+                console.log("Logged in as:", authData.uid);
+                $location.path('profile');
+            }).catch(function (error) {
+                console.error("Error: ", error);
             });
-
-
-
-
-
-
-        };
+        }
 
 
 
@@ -106,7 +116,21 @@ qsheets.controller('signupCtrl', [
 qsheets.controller('profileCtrl', [
     "$scope",
     "$firebase",
-    function($scope, $firebase){
+    "$firebaseAuth",
+    function($scope, $firebaseAuth, $firebase){
+
+        // Creates connection with db
+        var ref = new Firebase("https://qsheets.firebaseio.com");
+        $scope.authObj = $firebaseAuth(ref);
+
+
+        // Check authentication state
+        var authData = ref.getAuth();
+        if (authData) {
+            console.log("User " + authData.uid + " is logged in with " + authData.provider);
+        } else {
+            console.log("User is logged out");
+        }
 
     }
 ]);
