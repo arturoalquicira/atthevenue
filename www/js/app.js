@@ -52,39 +52,60 @@ qsheets.controller('loginCtrl',[
     "$firebase",
     "$firebaseAuth",
     "$location",
-    "Auth",
-    function($scope, $firebaseAuth, $location, Auth){
+    function($scope, $firebaseAuth, $location){
+
         // Creates connection with db
         var ref = new Firebase("https://qsheets.firebaseio.com");
+        $scope.authObj = $firebaseAuth(ref);
 
-        /** Local form variables **/
-        var email = $scope.email;
-        var password = $scope.password;
 
-        ref.authWithPassword({
-            email    : "arturo@arturo.com",
-            password : "hartur"
-        }, function(error, authData) {
-            if (error) {
-                console.log("Login Failed!", error);
-            } else {
-                console.log("Authenticated successfully with payload:", authData);
-                //$location.path('profile');
+        // Check authentication state
+        var authData = ref.getAuth();
+        if (authData) {
+            console.log("User " + authData.uid + " is logged in with " + authData.provider);
+        } else {
+            console.log("User is logged out");
+        }
 
-                return Auth.$authWithPassword({
-                    email: email,
-                    password: password
-                },{
-                    remember: "sessionOnly"
-                }).then(function(authData){
-                    console.log("Logged in as:", authData.uid);
-                    $location.path('profile');
-                }).catch(function(error){
-                    console.error("Error: ", error);
 
-                });
-            }
-        });
+        $scope.logIn = function(){
+            /** Local form variables **/
+            var email = $scope.email;
+            var password = $scope.password;
+
+            console.log(email);
+            console.log(password);
+
+            ref.authWithPassword({
+                email    : email,
+                password : password
+            }, function(error, authData) {
+                //console.log('test');
+                if (error) {
+                    console.log("Login Failed!", error);
+                } else {
+                    console.log("Authenticated successfully with payload:", authData);
+
+                    $scope.authObj.$onAuth(function(authData) {
+                        if (authData) {
+                            console.log("Logged in as:", authData.uid);
+                        } else {
+                            console.log("Logged out");
+                        }
+                    });
+                }
+            }, {
+                remember: "sessionOnly"
+            });
+
+
+
+
+
+
+        };//no tocar
+
+
 
     }
 ]);
@@ -96,10 +117,11 @@ qsheets.controller('signupCtrl', [
     "$rootScope",
     "$location",
     "$firebaseAuth",
-    function($scope, $rootScope, $location, $firebaseAuth) {
+    "$firebase",
+    function($scope, $rootScope, $location, $firebaseAuth,$firebase) {
 
         // Creates connection with db
-        var ref = new Firebase("https://qsheets.firebaseio.com");
+        var ref = new Firebase("https://qsheets.firebaseio.com/users");
         $scope.authObj = $firebaseAuth(ref);
 
 
@@ -118,12 +140,14 @@ qsheets.controller('signupCtrl', [
             var email = $scope.email;
             var password = $scope.password;
 
+            // creates user in firebase
             $scope.authObj.$createUser({
                 email: email,
                 password: password
             }).then(function (userData) {
                 console.log("User " + userData.uid + " created successfully!");
 
+                //authenticates the new user created
                 return $scope.authObj.$authWithPassword({
                     email: email,
                     password: password
@@ -131,12 +155,24 @@ qsheets.controller('signupCtrl', [
                     remember: "sessionOnly"
                 });
             }).then(function (authData) {
-                console.log("Logged in as:", authData.uid);
+
+                //saves user in db
+                var user = $firebase(ref).$asArray();
+                user.$add({
+                    account: authData
+                }).then(function(ref) {
+                    var id = ref.key();
+                    console.log("User added with id " + id + "successfully!");
+                    user.$indexFor(id); // returns location in the array
+                });
+                //console.log("Logged in as:", authData.uid);
                 $location.path('profile');
+
             }).catch(function (error) {
                 console.error("Error: ", error);
             });
-        }
+
+        }; //no tocar
 
 
 
@@ -149,8 +185,7 @@ qsheets.controller('profileCtrl', [
     "$scope",
     "$firebase",
     "$firebaseAuth",
-    "Auth",
-    function($scope, $firebaseAuth, Auth){
+    function($scope, $firebaseAuth){
 
         // Creates connection with db
         var ref = new Firebase("https://qsheets.firebaseio.com");
@@ -174,10 +209,10 @@ qsheets.controller('projectCtrl', [
     "$scope",
     "$firebase",
     function($scope, $firebase){
-        var ref = new Firebase("https://qsheets.firebaseio.com");
+        var eventsRef = new Firebase("https://qsheets.firebaseio.com");
 
         $scope.newEvent = {};
-        $scope.events = $firebase(ref).$asArray();
+        $scope.events = $firebase(eventsRef).$asArray();
 
         $scope.saveEvent = function(){
             $scope.newEvent.startDate = $scope.newEvent.startDate.toJSON();
@@ -220,6 +255,7 @@ qsheets.controller('projectCtrl', [
             formatYear: 'yy',
             startingDay: +1
         };
+
 
     }
 ]);
