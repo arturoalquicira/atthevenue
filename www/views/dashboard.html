@@ -1,0 +1,178 @@
+<ng-include src='"views/partials/navbar-app.html"'></ng-include>
+
+<div class="container container-custom">
+<main class="row main-app">
+    <!--First Column-->
+    <div  class="col-md-4 ">
+        <!--Profile Row-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="border-color row">
+                    <div class="col-md-8 col-sm-8 col-xs-8">
+                        <h3>PROFILE</h3>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4 text-right">
+                        <a class="color-icons" href="#/profile"> <span class="my-icon fa fa-pencil-square-o fa-2x"></span></a>
+                    </div>
+                </div>
+                <div class="border-color row">
+                    <div class="col-md-12">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <th><strong>First Name:</strong></th>
+                                <td>Arturo</td>
+                            </tr>
+                            <tr>
+                                <th><strong>Last Name:</strong></th>
+                                <td>Alquicira</td>
+                            </tr>
+                            <tr>
+                                <th><strong>E-mail:</strong></th>
+                                <td>arturoalquicira@fullsail.edu</td>
+                            </tr>
+                            <tr>
+                                <th><strong>Phone #:</strong></th>
+                                <td>407 360 0657</td>
+                            </tr>
+                            <tr>
+                                <th><strong>Company:</strong></th>
+                                <td>Showbox</td>
+                            </tr>
+                            <tr>
+                                <th><strong>Position:</strong></th>
+                                <td>Producer</td>
+                            </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div><br>
+
+        <!--Contacts Row-->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="border-color row">
+                    <div class="col-md-8 col-sm-8 col-xs-8">
+                        <h3>CONTACTS</h3>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4 text-right ">
+                        <a href="#/login" class="color-icons"><span class="fa fa-user-plus fa-2x my-icon"></span> </a>
+                    </div>
+                </div>
+
+                <div class="border-color row">
+                    <!--search input-->
+                     <div class="row">
+                        <div class="col-md-12">
+                            <form style="margin-top: 5px">
+                                <div class="form-group">
+                                    <label class="sr-only" for="contactsSearch"></label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                                        <input ng-model="search" type="text" class="form-control" id="contactsSearch" placeholder="Search Contacts">
+                                        <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span> </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!--contacts list-->
+                    <div class="row contacts-list">
+                        <div class="col-md-12">
+                            <table class="table table-hover">
+
+                                <tbody>
+
+                                <tr style="border-bottom: 2px solid #404040">
+                                    <th><a href="">Arturo Alquicira</a></th>
+                                    <td class="text-center"><span class="fa fa-user"></span></td>
+
+                                </tr>
+
+                                <tr style="border-bottom: 2px solid #404040">
+                                    <th><a href="">Arturo Alquicira</a></th>
+                                    <td class="text-center"><span class="fa fa-user"></span></td>
+
+                                </tr>
+
+                                <tr style="border-bottom: 2px solid #404040">
+                                    <th><a href="">Arturo Alquicira</a></th>
+                                    <td class="text-center"><span class="fa fa-user"></span></td>
+
+                                </tr>
+
+                                <tr style="border-bottom: 2px solid #404040">
+                                    <th><a href="">Arturo Alquicira</a></th>
+                                    <td class="text-center"><span class="fa fa-user"></span></td>
+
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div><br>
+    </div>
+    <!--End First Column-->
+
+    <!--Second Column-->
+    <div class="col-md-8 ">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="border-color row">
+                    <div class="col-md-7 col-sm-7 col-xs-7">
+                        <h3>PROJECTS</h3>
+                    </div>
+                    <div class="col-md-5 col-sm-5 col-xs-5 text-right my-link">
+                        <a href="#/login" class="color-icons"><span class="fa fa-plus"></span> New Project</a>
+                    </div>
+
+                </div>
+                <div class="border-color row">
+                    <div class="container-table-custom">
+                        <table class="responsive-table-custom">
+                            <thead>
+
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td data-title="Project Name:" class="text-left">Kings Of Leon</td>
+                                <td data-title="Dates:">11/01/15 - 11/02/15</td>
+                                <td data-title="City:">Orlando</td>
+                                <td data-title=""><a href="#/project" class="btn btn-block btn-primary">View Project</a> </td>
+                                <td data-title="" class="visible-md visible-lg"><a href="" class="delete-icon"><span class="fa fa-trash-o fa-lg"></span></a></td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+
+                <!--TESTING -->
+
+
+<!--finish testing-->
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+</main>
+</div>

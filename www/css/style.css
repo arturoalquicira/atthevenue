@@ -94,6 +94,9 @@ main#lan-main {
 header#navbar-app {
   background-color: #404040;
 }
+main#profile {
+  margin-bottom: 50px;
+}
 main.main-app {
   margin-top: 110px;
 }

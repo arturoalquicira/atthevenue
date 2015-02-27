@@ -1,5 +1,5 @@
-<!--NavBar - app (anim)-->
-<header id="navbar-app" class="navbar navbar-default navbar-fixed-top">
+<!--NavBar - app -->
+<header ng-controller="logOut" id="navbar-app" class="navbar navbar-default navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
             <div class="navbar-header">
@@ -85,7 +85,7 @@
             </div>
             <nav class="hidden-xs ">
                 <ul class="nav navbar-nav">
-                    <a href="#/profile" role="button" class="navbar-brand">
+                    <a href="#/dashboard" role="button" class="navbar-brand">
                         <svg width="180" height="40">
                             <circle display="none" fill="none" stroke="#282828" stroke-width="4" stroke-miterlimit="10" cx="-12.182" cy="18.683" r="18.512"/>
                             <g display="none">
@@ -164,16 +164,16 @@
 
                 <ul class="nav navbar-nav pull-right">
                     <li class="nav-app-margin">
-                        <a href="#/profile">Projects</a>
+                        <a href="#/dashboard">Projects</a>
 
                     </li>
-                    <li class="dropdown nav-app-margin" dropdown="">
+                    <li ng-show="authData" class="dropdown nav-app-margin" dropdown="">
 
                         <a role="button" class="dropdown-toggle" dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
-                            Arturo Alquicira <b class="caret"></b>
+                            {{ authData.uid }} <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu text-center">
-                            <li><a class="text-center" href="#/">Log Out</a>
+                            <li><a ng-click="auth.$unauth()" class="text-center">Log Out</a>
                         </ul>
                     </li>
                 </ul>
@@ -182,7 +182,7 @@
                 <ul class="nav navbar-nav text-center">
 
                     <li><a href="#/profile" ng-click="isCollapsed = !isCollapsed">Projects</a></li>
-                    <li><a href="#/" ng-click="isCollapsed = !isCollapsed">Log Out</a></li>
+                    <li><a href="#/" ng-click="isCollapsed = !isCollapsed; auth.$unauth()">Log Out</a></li>
                 </ul>
             </nav>
         </div>
