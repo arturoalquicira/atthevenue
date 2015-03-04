@@ -15,9 +15,9 @@ qsheets.config(["$routeProvider", function($routeProvider){
             templateUrl: '/views/login.html',
             controller: 'loginCtrl'
         })
-        .when('/profile',{
+        .when('/editProfile',{
             templateUrl: '/views/profile.html',
-            controller: 'profileCtrl'
+            controller: 'editProfileCtrl'
         })
         .when('/dashboard',{
             templateUrl: '/views/dashboard.html',
@@ -70,6 +70,14 @@ qsheets.controller('loginCtrl',[
 
         // Creates connection with db
         var ref = new Firebase("https://qsheets.firebaseio.com");
+
+        // Check authentication state
+        var authData = ref.getAuth();
+        if (authData) {
+            $location.path('dashboard');
+        } else {
+            console.log("User is logged out");
+        }
 
 
         // logiIn form
@@ -181,7 +189,7 @@ qsheets.controller('homeCtrl',[
     }
 ]);
 
-qsheets.controller('profileCtrl', [
+qsheets.controller('editProfileCtrl', [
    "$scope",
     "Auth",
     "$location",
@@ -232,10 +240,9 @@ qsheets.controller('profileCtrl', [
                 console.log("User is logged out");
             }
 
-
-
-
         }; //no tocar
+
+
 
     }
 ]);
@@ -244,10 +251,83 @@ qsheets.controller('dashboardCtrl', [
     "$scope",
     "Auth",
     "$location",
-    function($scope, Auth, $location){
+    "$firebase",
+    function($scope, Auth, $location, $firebase){
 
         // Creates connection with db
         var ref = new Firebase("https://qsheets.firebaseio.com");
+
+        $scope.newProject = {};
+
+        // Check authentication state and grabs de uid
+        var authData = ref.getAuth();
+        var urlProfile = "https://qsheets.firebaseio.com/users/"+authData.uid;
+        console.log('connecting');
+        // Creates connection with db
+        var urlRef = new Firebase(urlProfile);
+        $scope.projects = $firebase(urlRef.child('projects')).$asArray();
+
+        $scope.saveProject = function(){
+
+
+
+            $scope.newProject.startDate = $scope.newProject.startDate.toJSON();
+            $scope.newProject.endDate = $scope.newProject.endDate.toJSON();
+            $scope.projects.$add($scope.newProject);
+            $scope.newProject = {};
+        };
+
+        $scope.format = 'dd-MMMM-yyyy';
+
+
+        $scope.clear = function () {
+            $scope.newProject.startDate = null;
+            $scope.newProject.endDate = null;
+        };
+
+
+        $scope.openStartDate = function($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+
+            $scope.openStart = true;
+        };
+
+        $scope.openEndDate = function($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+
+            $scope.openEnd = true;
+        };
+
+        $scope.dateOptions = {
+            formatYear: 'yy',
+            startingDay: +1
+        };
+
+        $scope.minDate = new Date();
+
+
+    }
+]);
+
+qsheets.controller('profile',[
+   "$scope",
+    "Auth",
+    "$location",
+    "$firebase",
+    function($scope, Auth, $location, $firebase){
+
+        // Creates connection with db
+        var ref = new Firebase("https://qsheets.firebaseio.com");
+
+        // Check authentication state and grabs de uid
+        var authData = ref.getAuth();
+        var urlProfile = "https://qsheets.firebaseio.com/users/"+authData.uid;
+        // Creates connection with db
+        var urlRef = new Firebase(urlProfile);
+        $scope.user = $firebase(urlRef.child('profile/info')).$asObject();
+        console.log($scope.user);
 
 
     }
@@ -262,4 +342,6 @@ qsheets.controller('projectCtrl', [
 
     }
 ]);
+
+
 

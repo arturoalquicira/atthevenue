@@ -13,6 +13,11 @@ li {
 ::-webkit-input-placeholder {
   font-weight: 100;
 }
+/* Modals */
+#closeModal {
+  color: #8fd9d1;
+  text-shadow: none;
+}
 label {
   font-weight: 200;
 }

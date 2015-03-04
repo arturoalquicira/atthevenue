@@ -12,20 +12,20 @@
                         <h3>PROFILE</h3>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-4 text-right">
-                        <a class="color-icons" href="#/profile"> <span class="my-icon fa fa-pencil-square-o fa-2x"></span></a>
+                        <a class="color-icons" href="#/editProfile"> <span class="my-icon fa fa-pencil-square-o fa-2x"></span></a>
                     </div>
                 </div>
                 <div class="border-color row">
                     <div class="col-md-12">
                         <table class="table">
-                            <tbody>
+                            <tbody ng-controller="profile">
                             <tr>
                                 <th><strong>First Name:</strong></th>
-                                <td>Arturo</td>
+                                <td>{{user.firstName}}</td>
                             </tr>
                             <tr>
                                 <th><strong>Last Name:</strong></th>
-                                <td>Alquicira</td>
+                                <td>{{user.lastName}}</td>
                             </tr>
                             <tr>
                                 <th><strong>E-mail:</strong></th>
@@ -132,7 +132,62 @@
                         <h3>PROJECTS</h3>
                     </div>
                     <div class="col-md-5 col-sm-5 col-xs-5 text-right my-link">
-                        <a href="#/login" class="color-icons"><span class="fa fa-plus"></span> New Project</a>
+                        <a data-toggle="modal" data-target="#newProject" href="" class="color-icons"><span class="fa fa-plus"></span> New Project</a>
+
+                    </div>
+                    <!-- Modal/ New Project -->
+                    <div class="modal fade" id="newProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button id="closeModal" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Create New Project</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <!--Modal Body-->
+                                    <form ng-submit="saveProject()" class="">
+
+                                        <div class="form-group">
+                                            <label for="projectName">Project Name</label>
+                                            <input onfocus="" ng-model="newProject.projectName"  type="text" class="form-control input-lg" id="projectName" placeholder="Project Name" autofocus>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Start Date</label>
+                                            <p class="input-group">
+                                                <input placeholder="mm/dd/yyyy" type="text" name="startDate" class="form-control input-lg" datepicker-popup="{{format}}" ng-model="newProject.startDate" is-open="openStart" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                                  <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-primary btn-lg" ng-click="openStartDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                  </span>
+                                            </p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>End Date</label>
+                                            <p class="input-group">
+                                                <input placeholder="mm/dd/yyyy" type="text" name="endDate" class="form-control input-lg" datepicker-popup="{{format}}" ng-model="newProject.endDate" is-open="openEnd" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                                  <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-primary btn-lg" ng-click="openEndDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                  </span>
+                                            </p>
+
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="city">City</label>
+                                            <input ng-model="newProject.city"  type="text" class="form-control input-lg" id="city" placeholder="City">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary" >Create</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -144,10 +199,10 @@
                             </thead>
 
                             <tbody>
-                            <tr>
-                                <td data-title="Project Name:" class="text-left">Kings Of Leon</td>
-                                <td data-title="Dates:">11/01/15 - 11/02/15</td>
-                                <td data-title="City:">Orlando</td>
+                            <tr ng-repeat="project in projects">
+                                <td data-title="Project Name:" class="text-left">{{project.projectName}}</td>
+                                <td data-title="Dates:">{{project.startDate | date : format : short}} -- {{project.endDate | date : format : short}}</td>
+                                <td data-title="City:">{{project.city}}</td>
                                 <td data-title=""><a href="#/project" class="btn btn-block btn-primary">View Project</a> </td>
                                 <td data-title="" class="visible-md visible-lg"><a href="" class="delete-icon"><span class="fa fa-trash-o fa-lg"></span></a></td>
                             </tr>
@@ -161,10 +216,8 @@
         <div class="row">
             <div class="col-md-6">
 
-                <!--TESTING -->
 
 
-<!--finish testing-->
             </div>
         </div>
 

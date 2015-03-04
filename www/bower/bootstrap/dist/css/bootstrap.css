@@ -3009,7 +3009,7 @@ fieldset[disabled] .btn {
 .btn-default {
   color: #fffef5;
   background-color: #404040;
-  border-color: #8fd9d1;
+  border-color: #404040;
 }
 .btn-default:hover,
 .btn-default:focus,
@@ -3019,7 +3019,7 @@ fieldset[disabled] .btn {
 .open > .dropdown-toggle.btn-default {
   color: #fffef5;
   background-color: #272727;
-  border-color: #61c9be;
+  border-color: #212121;
 }
 .btn-default:active,
 .btn-default.active,
@@ -3045,7 +3045,7 @@ fieldset[disabled] .btn-default:active,
 .btn-default[disabled].active,
 fieldset[disabled] .btn-default.active {
   background-color: #404040;
-  border-color: #8fd9d1;
+  border-color: #404040;
 }
 .btn-default .badge {
   color: #404040;
@@ -3143,8 +3143,8 @@ fieldset[disabled] .btn-success.active {
 }
 .btn-info {
   color: #fffef5;
-  background-color: #5bc0de;
-  border-color: #5bc0de;
+  background-color: #4b8ab2;
+  border-color: #4b8ab2;
 }
 .btn-info:hover,
 .btn-info:focus,
@@ -3153,8 +3153,8 @@ fieldset[disabled] .btn-success.active {
 .btn-info.active,
 .open > .dropdown-toggle.btn-info {
   color: #fffef5;
-  background-color: #31b0d5;
-  border-color: #2aabd2;
+  background-color: #3c6e8e;
+  border-color: #396987;
 }
 .btn-info:active,
 .btn-info.active,
@@ -3179,11 +3179,11 @@ fieldset[disabled] .btn-info:active,
 .btn-info.disabled.active,
 .btn-info[disabled].active,
 fieldset[disabled] .btn-info.active {
-  background-color: #5bc0de;
-  border-color: #5bc0de;
+  background-color: #4b8ab2;
+  border-color: #4b8ab2;
 }
 .btn-info .badge {
-  color: #5bc0de;
+  color: #4b8ab2;
   background-color: #fffef5;
 }
 .btn-warning {
@@ -4753,11 +4753,11 @@ a.label:focus {
   background-color: #69ccc1;
 }
 .label-info {
-  background-color: #5bc0de;
+  background-color: #4b8ab2;
 }
 .label-info[href]:hover,
 .label-info[href]:focus {
-  background-color: #31b0d5;
+  background-color: #3c6e8e;
 }
 .label-warning {
   background-color: #f0ad4e;
@@ -5020,7 +5020,7 @@ a.thumbnail.active {
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 .progress-bar-info {
-  background-color: #5bc0de;
+  background-color: #4b8ab2;
 }
 .progress-striped .progress-bar-info {
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
@@ -5712,7 +5712,7 @@ button.close {
 }
 .modal-content {
   position: relative;
-  background-color: #ffffff;
+  background-color: #282828;
   border: 1px solid #999999;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 2px;
@@ -5726,19 +5726,19 @@ button.close {
   top: 0;
   right: 0;
   left: 0;
-  background-color: #000000;
+  background-color: #404040;
 }
 .modal-backdrop.fade {
   opacity: 0;
   filter: alpha(opacity=0);
 }
 .modal-backdrop.in {
-  opacity: 0.5;
-  filter: alpha(opacity=50);
+  opacity: 0.7;
+  filter: alpha(opacity=70);
 }
 .modal-header {
   padding: 15px;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #999999;
   min-height: 16.42857143px;
 }
 .modal-header .close {
@@ -5755,7 +5755,7 @@ button.close {
 .modal-footer {
   padding: 15px;
   text-align: right;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #999999;
 }
 .modal-footer .btn + .btn {
   margin-left: 5px;
