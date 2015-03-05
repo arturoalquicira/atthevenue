@@ -152,7 +152,7 @@ qsheets.controller('signupCtrl', [
                     console.log("Error:" + error);
                 });
                 //console.log("Logged in as:", authData.uid);
-                $location.path('profile');
+                $location.path('editProfile');
 
             }).catch(function (error) {
                 console.error("Error: ", error);
@@ -273,8 +273,13 @@ qsheets.controller('dashboardCtrl', [
 
             $scope.newProject.startDate = $scope.newProject.startDate.toJSON();
             $scope.newProject.endDate = $scope.newProject.endDate.toJSON();
-            $scope.projects.$add($scope.newProject);
+            $scope.projects.$add($scope.newProject).then(function(ref) {
+                var id = ref.key();
+                console.log("added record with id " + id);
+                $scope.projects.$indexFor(id); // returns location in the array
+            });
             $scope.newProject = {};
+
         };
 
         $scope.format = 'dd-MMMM-yyyy';
@@ -307,6 +312,16 @@ qsheets.controller('dashboardCtrl', [
 
         $scope.minDate = new Date();
 
+        $scope.deleteProject = function($id){
+
+            var list = $scope.projects;
+            var rec = list.$getRecord($id);
+            list.$remove(rec);
+
+        }
+
+
+
 
     }
 ]);
@@ -327,7 +342,6 @@ qsheets.controller('profile',[
         // Creates connection with db
         var urlRef = new Firebase(urlProfile);
         $scope.user = $firebase(urlRef.child('profile/info')).$asObject();
-        console.log($scope.user);
 
 
     }

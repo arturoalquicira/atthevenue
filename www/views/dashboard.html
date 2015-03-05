@@ -149,13 +149,13 @@
 
                                         <div class="form-group">
                                             <label for="projectName">Project Name</label>
-                                            <input onfocus="" ng-model="newProject.projectName"  type="text" class="form-control input-lg" id="projectName" placeholder="Project Name" autofocus>
+                                            <input ng-model="newProject.projectName"  type="text" class="form-control input-lg" id="projectName" placeholder="Project Name" autofocus>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Start Date</label>
                                             <p class="input-group">
-                                                <input placeholder="mm/dd/yyyy" type="text" name="startDate" class="form-control input-lg" datepicker-popup="{{format}}" ng-model="newProject.startDate" is-open="openStart" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                                <input placeholder="dd/month/yyyy" type="text" name="startDate" class="form-control input-lg" datepicker-popup="{{format}}" ng-model="newProject.startDate" is-open="openStart" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
                                                   <span class="input-group-btn">
                                                     <button type="button" class="btn btn-primary btn-lg" ng-click="openStartDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                                                   </span>
@@ -165,7 +165,7 @@
                                         <div class="form-group">
                                             <label>End Date</label>
                                             <p class="input-group">
-                                                <input placeholder="mm/dd/yyyy" type="text" name="endDate" class="form-control input-lg" datepicker-popup="{{format}}" ng-model="newProject.endDate" is-open="openEnd" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                                <input placeholder="dd/month/yyyy" type="text" name="endDate" class="form-control input-lg" datepicker-popup="{{format}}" ng-model="newProject.endDate" is-open="openEnd" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
                                                   <span class="input-group-btn">
                                                     <button type="button" class="btn btn-primary btn-lg" ng-click="openEndDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                                                   </span>
@@ -204,7 +204,7 @@
                                 <td data-title="Dates:">{{project.startDate | date : format : short}} -- {{project.endDate | date : format : short}}</td>
                                 <td data-title="City:">{{project.city}}</td>
                                 <td data-title=""><a href="#/project" class="btn btn-block btn-primary">View Project</a> </td>
-                                <td data-title="" class="visible-md visible-lg"><a href="" class="delete-icon"><span class="fa fa-trash-o fa-lg"></span></a></td>
+                                <td data-title="" class="visible-md visible-lg"><a ng-click="deleteProject(project.$id)" href="" class="delete-icon"><span class="fa fa-trash-o fa-lg"></span></a></td>
                             </tr>
 
                             </tbody>
