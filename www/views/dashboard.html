@@ -12,13 +12,13 @@
                         <h3>PROFILE</h3>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-4 text-right">
-                        <a class="color-icons" href="#/editProfile"> <span class="my-icon fa fa-pencil-square-o fa-2x"></span></a>
+                        <a class="color-icons" href="#/profile"> <span class="my-icon fa fa-pencil-square-o fa-2x"></span></a>
                     </div>
                 </div>
                 <div class="border-color row">
                     <div class="col-md-12">
                         <table class="table">
-                            <tbody ng-controller="profile">
+                            <tbody ng-controller="profileCtrl">
                             <tr>
                                 <th><strong>First Name:</strong></th>
                                 <td>{{user.firstName}}</td>
@@ -29,19 +29,19 @@
                             </tr>
                             <tr>
                                 <th><strong>E-mail:</strong></th>
-                                <td>arturoalquicira@fullsail.edu</td>
+                                <td>{{user.email}}</td>
                             </tr>
                             <tr>
                                 <th><strong>Phone #:</strong></th>
-                                <td>407 360 0657</td>
+                                <td>{{user.phone}}</td>
                             </tr>
                             <tr>
                                 <th><strong>Company:</strong></th>
-                                <td>Showbox</td>
+                                <td>{{user.companyName}}</td>
                             </tr>
                             <tr>
                                 <th><strong>Position:</strong></th>
-                                <td>Producer</td>
+                                <td>{{user.position}}</td>
                             </tr>
                             </tbody>
 
@@ -155,7 +155,7 @@
                                         <div class="form-group">
                                             <label>Start Date</label>
                                             <p class="input-group">
-                                                <input placeholder="dd/month/yyyy" type="text" name="startDate" class="form-control input-lg" datepicker-popup="{{format}}" ng-model="newProject.startDate" is-open="openStart" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                                <input placeholder="dd-month-yyyy" type="text" name="startDate" class="form-control input-lg" datepicker-popup="{{format}}" ng-model="newProject.startDate" is-open="openStart" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
                                                   <span class="input-group-btn">
                                                     <button type="button" class="btn btn-primary btn-lg" ng-click="openStartDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                                                   </span>
@@ -165,7 +165,7 @@
                                         <div class="form-group">
                                             <label>End Date</label>
                                             <p class="input-group">
-                                                <input placeholder="dd/month/yyyy" type="text" name="endDate" class="form-control input-lg" datepicker-popup="{{format}}" ng-model="newProject.endDate" is-open="openEnd" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                                <input placeholder="dd-month-yyyy" type="text" name="endDate" class="form-control input-lg" datepicker-popup="{{format}}" ng-model="newProject.endDate" is-open="openEnd" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
                                                   <span class="input-group-btn">
                                                     <button type="button" class="btn btn-primary btn-lg" ng-click="openEndDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                                                   </span>
@@ -203,7 +203,7 @@
                                 <td data-title="Project Name:" class="text-left">{{project.projectName}}</td>
                                 <td data-title="Dates:">{{project.startDate | date : format : short}} -- {{project.endDate | date : format : short}}</td>
                                 <td data-title="City:">{{project.city}}</td>
-                                <td data-title=""><a href="#/project" class="btn btn-block btn-primary">View Project</a> </td>
+                                <td data-title=""><a href="#/project/{{project.$id}}/{{project.projectName}}" class="btn btn-block btn-primary">View Project</a> </td>
                                 <td data-title="" class="visible-md visible-lg"><a ng-click="deleteProject(project.$id)" href="" class="delete-icon"><span class="fa fa-trash-o fa-lg"></span></a></td>
                             </tr>
 

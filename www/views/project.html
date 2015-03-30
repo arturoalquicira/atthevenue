@@ -1,7 +1,7 @@
 <ng-include src='"views/partials/navbar-app.html"'></ng-include>
 
 <div class="container">
-    <main class="row main-app">
+    <main ng-controller="projectCtrl" class="row main-app">
         <div class="col-md-12">
             <section class="row tabs">
                 <!--First Column-->
@@ -24,7 +24,7 @@
                                         <tbody>
                                         <tr>
                                             <th><strong>Event Title:</strong></th>
-                                            <td>Kings Of Leon</td>
+                                            <td>{{project.projectName}}</td>
                                         </tr>
                                         <tr>
                                             <th><strong>Type:</strong></th>
